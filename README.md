@@ -83,3 +83,9 @@ clickbox.screenshot(offset=(5,10), width=50, height=100)
 clickbox.read(offset=(50,100), width=100, height=50) # => returns a string of the characters read off the screenshot.
 
 ```
+## Roadmap
+| Feature Name        | Feature Description                                                | Status        |
+| ------------------- | ------------------------------------------------------------------ | :-----------: |
+| Write passing TDD   | Make sure all Item methods work as well as the MVP framework.      | IN PROGRESS   |
+| Get OCR Working     | Implement capturing of your Google Cloud Key -> .read() will work  | NEXT UP       |
+| Run from CSV        | Add a method for running the automator based off a CSV + Model     | IN THE FUTURE |
