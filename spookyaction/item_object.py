@@ -3,7 +3,6 @@ import time, os, ocr
 from error_handling import *
 from spooky_logs import log
 
-logging.basicConfig(filename='loglines.txt',level=logging.INFO)
 # needed to allow silent failing chains
 class Empty:
     def __init__(self):
@@ -65,12 +64,12 @@ class Item(object):
 
     @staticmethod
     @log
-    def wait_for(*args, typewrite_between=[]):
+    def wait_for(*args):
         theres = []
         while True not in theres:
             for i in args:
                 theres.append(Items[i].found)
-            ui.typewrite(*typewrite_between)
+            ui.typewrite(*tkwargs["typewrite_between"])
 
 
     @log
@@ -143,7 +142,3 @@ class Item(object):
 
 
 Items = {}
-
-def load_imgs():
-    names = os.listdir('./imgs')
-    Items = {name: Item(name) for name in names}

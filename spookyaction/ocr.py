@@ -1,7 +1,7 @@
 
     ## uses the vision api from google for ocr. it's fairly fast, very accurate.
 import base64, cStringIO, requests
-url = "https://vision.googleapis.com/v1/images:annotate?key=
+url = "https://vision.googleapis.com/v1/images:annotate?key="
 
 def request_body(image):
     return {
