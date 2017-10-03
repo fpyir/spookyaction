@@ -85,7 +85,7 @@ clickbox.read(offset=(50,100), width=100, height=50) # => returns a string of th
 ```
 ## Roadmap
 | Feature Name        | Feature Description                                                | Status        |
-| ------------------- | ------------------------------------------------------------------ | :-----------: |
-| Push out v0.1.0     | Make sure all Item methods work as well as the MVP framework.      | IN PROGRESS   |
+| ------------------- | ------------------------------------------------------------------ | ------------: |
+| Push out v0.1.0     | Make sure all Item methods work as well as the MVP framework.      | COMPLETED     | 
 | Get OCR Working     | Implement capturing of your Google Cloud Key -> .read() will work  | NEXT UP       |
 | Run from CSV        | Add a method for running the automator based off a CSV + Model     | IN THE FUTURE |
