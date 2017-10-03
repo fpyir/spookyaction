@@ -32,7 +32,7 @@ For the moment it is strongly advised that you **do not use this in real world p
 
 
 ### Basic Item API 
-Bare in mind I can make no guarantees as to if any of those works correctly while spookyaction is below v0.1.0
+Bear in mind I can make no guarantees as to if any of those works correctly while spookyaction is below v0.1.0
 ```python 
 clickbox = Item("path/to/clickbox.png")
 
