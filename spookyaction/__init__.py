@@ -1,12 +1,12 @@
 import pyautogui
-import os
+import os, sys
 from item_object import Item, Items
 from functools import wraps
 from error_handling import Error
 
 METHODS = { }
 currentresults = []
-names = os.listdir('./imgs')
+names = os.listdir('./'+sys.argv[0]+'/imgs')
 Items = {name: Item(name) for name in names}
 
 class GUI_INTERFACE():
@@ -15,7 +15,7 @@ class GUI_INTERFACE():
 
     def keywrite(self, *args):
         pyautogui.keywrite(list(args))
-        
+
 ui = GUI_INTERFACE()
 
 def new_method(name):
