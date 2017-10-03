@@ -2,12 +2,12 @@ from distutils.core import setup
 
 setup(
     name='spookyaction',
-    version='0.0.1',
+    version='0.0.2',
     author='Adam Short',
     author_email='adam010101@icloud.com',
     packages=['spookyaction'],
     url='http://pypi.python.org/pypi/TowelStuff/',
     license='LICENSE.txt',
-    description='Useful towel-related stuff.',
+    description='A framework for pyautogui automation.',
     long_description=open('README.txt').read(),
 )
