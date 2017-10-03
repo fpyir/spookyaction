@@ -1,5 +1,5 @@
 import pyautogui as gi
-import time, os, ocr
+import time, os, ocr, logging, sys, re
 from error_handling import *
 from spooky_logs import log
 
@@ -60,6 +60,7 @@ class Item(object):
     @log
     def click_all(*args):
         for i in args:
+            print Items
             Items[i].click()
 
     @staticmethod
@@ -139,6 +140,6 @@ class Item(object):
         img = self.screenshot(offset=(90,5), width=100, height=12)
         recg = str(ocr.make_recognition(img).rstrip())
         return recg
-
-
-Items = {}
+directory = './'+sys.argv[0]+'/imgs'
+names = os.listdir(directory)
+Items = {re.sub('(\.PNG)', '', name): Item(directory+"/"+name) for name in names}

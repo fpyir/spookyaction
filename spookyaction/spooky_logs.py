@@ -1,5 +1,6 @@
 import logging
 from functools import wraps
+from error_handling import *
 
 logging.basicConfig(filename='loglines.txt',level=logging.INFO)
 
@@ -14,5 +15,5 @@ def log(fn):
 
         format_list = list(args) + list(kwargsvals)
         logging.info(formatted, *format_list)
-        fn(*args, **kwargs)
+        return fn(*args, **kwargs)
     return logged_function

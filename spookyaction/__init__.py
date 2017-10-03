@@ -1,14 +1,12 @@
 import pyautogui
-import os, sys
+import os
+import item_object
 from item_object import Item, Items
 from functools import wraps
 from error_handling import Error
 
 METHODS = { }
 currentresults = []
-directory = './'+sys.argv[0]+'/imgs'
-names = os.listdir(directory)
-Items = {name: Item(directory+"/"+name) for name in names}
 
 class GUI_INTERFACE():
     def __init__(self):
