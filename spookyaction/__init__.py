@@ -6,8 +6,9 @@ from error_handling import Error
 
 METHODS = { }
 currentresults = []
-names = os.listdir('./'+sys.argv[0]+'/imgs')
-Items = {name: Item(name) for name in names}
+directory = './'+sys.argv[0]+'/imgs'
+names = os.listdir(directory)
+Items = {name: Item(directory+"/"+name) for name in names}
 
 class GUI_INTERFACE():
     def __init__(self):

@@ -18,7 +18,7 @@ class Item(object):
     @log
     def __init__(self, picturename):
         self.picturename = picturename
-        self.url = "C:/Casper/casper-worker/worker/images/" + picturename
+        self.url = picturename
         self.result = None
 
     @log
