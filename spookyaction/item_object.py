@@ -1,6 +1,5 @@
 import pyautogui as gi
-import time
-from get_images import Items
+import time, os, ocr
 from error_handling import *
 from spooky_logs import log
 
@@ -130,8 +129,21 @@ class Item(object):
         gi.typewrite(sentence, interval=0.2)
 
     @log
-    def screenshot_from_here(self, offset=None, width=None, height=None):
+    def screenshot(self, offset=None, width=None, height=None):
         start = gi.locateOnScreen(self.url)
         x, y = start[0] + offset[0], start[1] + offset[1]
         logging.info("Final x and y is %d, %d", x, y)
         return gi.screenshot("../screen.png", region=(x, y, width, height))
+
+    @log
+    def read(self, offset=None, width=None, height=None):
+        img = self.screenshot(offset=(90,5), width=100, height=12)
+        recg = str(ocr.make_recognition(img).rstrip())
+        return recg
+
+
+Items = {}
+
+def load_imgs():
+    names = os.listdir('./imgs')
+    Items = {name: Item(name) for name in names}
