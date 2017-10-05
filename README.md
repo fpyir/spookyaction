@@ -32,7 +32,7 @@ For the moment it is strongly advised that you **do not use this in real world p
 
 
 ### Basic Item API 
-Bare in mind I can make no guarantees as to if any of those works correctly while spookyaction is below v0.1.0
+Bear in mind I can make no guarantees as to if any of those works correctly while spookyaction is below v0.1.0
 ```python 
 clickbox = Item("path/to/clickbox.png")
 
@@ -84,8 +84,12 @@ clickbox.read(offset=(50,100), width=100, height=50) # => returns a string of th
 
 ```
 ## Roadmap
-| Feature Name        | Feature Description                                                | Status        |
-| ------------------- | ------------------------------------------------------------------ | :-----------: |
-| Push out v0.1.0     | Make sure all Item methods work as well as the MVP framework.      | IN PROGRESS   |
-| Get OCR Working     | Implement capturing of your Google Cloud Key -> .read() will work  | NEXT UP       |
-| Run from CSV        | Add a method for running the automator based off a CSV + Model     | IN THE FUTURE |
+| Feature Name         | Feature Description                                                | Status        | Version Number |
+| -------------------  | ------------------------------------------------------------------ | ------------: | -------------: |
+| Push out v0.1.0      | Make sure all Item methods work as well as the MVP framework.      | COMPLETED     | V0.1.0         |
+| Get OCR Working      | Implement capturing of your Google Cloud Key -> .read() will work. | IN PROGRESS   | V0.1.1         |
+| Run from CSV         | Add a method for running the automator based off a CSV + Model.    | IN THE FUTURE | V0.2.0         |
+| Static Items         | Support for marking items as static, and caching their positions.  | IN THE FUTURE | V0.3.0         |
+| Full PyAutoGUI Args  | Ability to use all PyAutoGUI keyword arguments conveniently.       | IN THE FUTURE | V0.4.0         |
+| Specific Error.      | Extensive support for a variety of errors + better error handling  | IN THE FUTURE | V0.5.0         |
+| Raw PyAutoGUI Wrapper| Turn ui class into a complete convienence wrapper for pyautogui    | IN THE FUTURE | V0.6.0         |
