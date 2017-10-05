@@ -39,12 +39,13 @@ class Ghost(object):
             self[i].click()
 
     @log
-    def wait_for_one_of(self, *args):
+    def wait_for_all(self, *args, **kwargs):
         theres = []
-        while True not in theres:
+        while theres != [True]*len(args):
+            theres = []
             for i in args:
                 theres.append(self[i].found)
-            ui.typewrite(*tkwargs["typewrite_between"])
+            ui.typewrite(*kwargs["typewrite_between"])
 
     def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
         self.start(obj, cmd)
