@@ -4,7 +4,7 @@ from spooky_logs import log
 from error_handling import Error
 from ui import GUI_INTERFACE
 
-class Ghost(object):
+class Ghost(object, GUI_INTERFACE):
     def __init__(self, ocr_key):
         self.METHODS = {}
         self.currentresults = []
@@ -45,7 +45,7 @@ class Ghost(object):
             theres = []
             for i in args:
                 theres.append(self[i].found)
-            ui.typewrite(*kwargs["typewrite_between"])
+            self.keywrite(*kwargs["typewrite_between"])
 
     def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
         self.start(obj, cmd)
