@@ -33,15 +33,6 @@ class Ghost(object):
     def completed(self, obj, cmd):
         raise NotImplementedError("completed(obj, cmd) must be implemented")
 
-    def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
-        self.start(obj, cmd)
-        try:
-            currentresults = METHODS[cmd](*cmd_args, **cmd_kwargs)
-        except Error as e:
-            self.failed(e, obj, cmd)
-        else:
-            self.completed(obj, cmd)
-
     @log
     def click_all(self, *args):
         for i in args:
@@ -54,3 +45,15 @@ class Ghost(object):
             for i in args:
                 theres.append(self[i].found)
             ui.typewrite(*tkwargs["typewrite_between"])
+
+    def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
+        self.start(obj, cmd)
+        try:
+            currentresults = METHODS[cmd](*cmd_args, **cmd_kwargs)
+        except Error as e:
+            self.failed(e, obj, cmd)
+        else:
+            self.completed(obj, cmd)
+
+    # def run_all(filename="commands.csv", model=[]):
+    #     self.

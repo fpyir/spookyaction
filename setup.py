@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='spookyaction',
-    version='0.2.0',
+    version='0.2.1',
     author='Adam Short',
     author_email='adam010101@icloud.com',
     packages=['spookyaction'],

@@ -109,11 +109,18 @@ class Item(object):
     @log
     def keywrite(self, *args):
         gi.typewrite(list(args),interval=0.2)
+        return self
 
     @log
     def write(self, sentence):
         gi.typewrite(sentence, interval=0.2)
+        return self
 
+    @log
+    def wait(self, interval):
+        time.sleep(interval)
+        return self
+        
     @log
     def screenshot(self, offset=None, width=100, height=100):
         start = gi.locateOnScreen(self.url)

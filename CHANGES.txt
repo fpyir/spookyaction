@@ -5,3 +5,4 @@ v<0.0.4>, <3/10/17> -- Bug fixes.
 v<0.1.0>, <3/10/17> -- working alpha.
 v<0.1.1>, <3/10/17> -- homepage url updated.
 v<0.2.0>, <3/10/17> -- Ghost Class + OCR Code working.
+v<0.2.1>, <3/10/17> -- Bug fixes
