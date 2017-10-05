@@ -1,37 +1,56 @@
-import pyautogui
-import os
-import item_object
-from item_object import Item, Items
-from functools import wraps
+import os, sys, re
+from item_object import Item
+from spooky_logs import log
 from error_handling import Error
+from ui import GUI_INTERFACE
 
-METHODS = { }
-currentresults = []
+class Ghost(object):
+    def __init__(self, ocr_key):
+        self.METHODS = {}
+        self.currentresults = []
+        self.ocr_key = ocr_key
 
-class GUI_INTERFACE():
-    def __init__(self):
-        pass
+        directory = './'+sys.argv[0]+'/imgs' # the ./ may be a problem?
+        names = os.listdir(directory)
+        self.Items = {
+            re.sub('(\.PNG)', '', name): Item(directory+"/"+name, self.ocr_key)
+            for name in names
+        }
 
-    def keywrite(self, *args):
-        pyautogui.keywrite(list(args))
+    def __getitem__(self, key):
+        return self.Items[key]
 
-ui = GUI_INTERFACE()
+    def new_method(self, fn):
+        self.METHODS[fn.__name__] = fn
+        return fn
 
-def new_method(name):
-    def new_method_wrapper(fn):
-        METHODS[name] = fn
-        @wraps(fn)
-        def wrapped_method(*args, **kwargs):
-            fn(*args, **kwargs)
-        return wrapped_method
-    return new_method_wrapper
+    def start(self, obj, cmd):
+        raise NotImplementedError("start(obj, cmd) must be implemented.")
 
+    def failed(self, e, obj, cmd):
+        raise NotImplementedError("failed(e, obj, cmd) must be implemented")
 
-def run(obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
-    METHODS["START"](obj, cmd)
-    try:
-        currentresults = METHODS[cmd](*cmd_args, **cmd_kwargs)
-    except Error as e:
-        METHODS["FAILED"](e, obj, cmd)
-    else:
-        METHODS["COMPLETED"](obj, cmd)
+    def completed(self, obj, cmd):
+        raise NotImplementedError("completed(obj, cmd) must be implemented")
+
+    def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
+        self.start(obj, cmd)
+        try:
+            currentresults = METHODS[cmd](*cmd_args, **cmd_kwargs)
+        except Error as e:
+            self.failed(e, obj, cmd)
+        else:
+            self.completed(obj, cmd)
+
+    @log
+    def click_all(self, *args):
+        for i in args:
+            self[i].click()
+
+    @log
+    def wait_for_one_of(self, *args):
+        theres = []
+        while True not in theres:
+            for i in args:
+                theres.append(self[i].found)
+            ui.typewrite(*tkwargs["typewrite_between"])

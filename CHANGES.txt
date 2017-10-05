@@ -2,3 +2,5 @@ v<0.0.1>, <3/10/17> -- Initial alpha release.
 v<0.0.2>, <3/10/17> -- Initial compiling alpha release.
 v<0.0.3>, <3/10/17> -- Bug fixes.
 v<0.0.4>, <3/10/17> -- Bug fixes.
+v<0.1.0>, <3/10/17> -- working alpha.
+v<0.1.1>, <3/10/17> -- homepage url updated.
