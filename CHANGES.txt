@@ -8,4 +8,5 @@ v<0.2.0>, <5/10/17> -- Ghost Class + OCR Code working.
 v<0.2.1>, <5/10/17> -- Bug fixes
 v<0.2.2>, <5/10/17> -- Bug Fixes
 v<0.2.3>, <5/10/17> -- Class inheritance of GUI_INTERFACE
-v<0.2.4>, <5/10/17> -- Tiny typo fix 
+v<0.2.4>, <5/10/17> -- Tiny typo fix
+v<0.2.5>, <5/10/17> -- Small bug fix

@@ -48,8 +48,8 @@ class Ghost(object, GUI_INTERFACE):
             self.keywrite(*kwargs["typewrite_between"])
 
     def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
-        self.start(obj, cmd)
         try:
+            self.start(obj, cmd)
             currentresults = METHODS[cmd](*cmd_args, **cmd_kwargs)
         except Error as e:
             self.failed(e, obj, cmd)
