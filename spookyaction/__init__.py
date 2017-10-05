@@ -41,10 +41,13 @@ class Ghost(object, GUI_INTERFACE):
     @log
     def wait_for_all(self, *args, **kwargs):
         theres = []
+        print(theres)
         while theres != [True]*len(args):
             theres = []
             for i in args:
                 theres.append(self[i].found)
+            print(theres)
+            print([True]*len(args))
             self.keywrite(*kwargs["typewrite_between"])
 
     def run(self, obj=None, cmd=None, cmd_args=None, cmd_kwargs=None):
