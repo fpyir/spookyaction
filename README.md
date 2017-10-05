@@ -1,5 +1,5 @@
 
-# SpookyAction
+# SpookyAction (V0.2.0)
 SpookyAction is a **Python** framework for desktop automation - it takes a configuration-based approach to utilising the PyAutoGUI. At the core of the framework is the `Item` class. It uses the concept of silent chaining to make writing automated flows quick and simple. 
 
 SpookyAction is currently in early alpha, with a huge number of features to be written, things to be refactored and issues to be squashed. The ultimate goal is to create a simplistic, high level way to automate flows across both desktop interactions, API calls and Headless browser usage.
@@ -50,7 +50,6 @@ MyGhost.typewrite("enter") # the Ghost class is a subclass of the UIInterface cl
 ```
 
 ### Basic Item API 
-Bear in mind I can make no guarantees as to if any of those works correctly while spookyaction is below v0.1.0
 ```python 
 clickbox = Item("path/to/clickbox.png")
 
@@ -93,7 +92,7 @@ clickbox.write("how are you today?")
 # take a screenshot and save it. 
 clickbox.screenshot(offset=(5,10), width=50, height=100)
 
-# read using the Google Cloud OCR. Not working currently.
+# read using the Google Cloud OCR.
 clickbox.read(offset=(50,100), width=100, height=50) # => returns a string of the characters read off the screenshot.
 
 ```
@@ -102,7 +101,7 @@ clickbox.read(offset=(50,100), width=100, height=50) # => returns a string of th
 | -------------------  | ------------------------------------------------------------------ | ------------: | -------------: |
 | Push out v0.1.0      | Make sure all Item methods work as well as the MVP framework.      | COMPLETED     | V0.1.0         |
 | Get OCR Working      | Implement capturing of your Google Cloud Key -> .read() will work. | COMPLETED     | V0.2.0         | 
-| Run from CSV         | Add a method for running the automator based off a CSV + Model.    | IN THE FUTURE | V0.3.0         |
+| Run from CSV         | Add a method for running the automator based off a CSV + Model.    | IN PROGRESS   | V0.3.0         |
 | Static Items         | Support for marking items as static, and caching their positions.  | IN THE FUTURE | V0.4.0         |
 | Full PyAutoGUI Args  | Ability to use all PyAutoGUI keyword arguments conveniently.       | IN THE FUTURE | V0.5.0         |
 | Specific Error.      | Extensive support for a variety of errors + better error handling  | IN THE FUTURE | V0.6.0         |
