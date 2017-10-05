@@ -11,25 +11,43 @@ For the moment it is strongly advised that you **do not use this in real world p
 1. Create a directory with the following structure:
    ```
    __main__.py
-   helpers.py
+   ghost.py
    methods.py
    imgs/
    ```
 2. In `imgs/` put all your image files to be turned into Item's.
-3. In `helpers.py` you want to define functions to be used by your code, but not directly by the user. 
-4. In `methods.py` you want to define and then register functions to be used by your user. You must also registrer START, COMPLETED, and FAILED functions. Trival Example of registering a command:
+3. In `ghost.py` you want to define and initialise your subset of the `Ghost` class.
+4. In `methods.py` you want to define and then register functions to be used by your user, plus your own helper functions.
     ```
-    from spookyaction import *
-    from helpers import *
-    @new_method("bake-pie")
+    from ghost import MyGhost
+    @MyGhost.new_method()
     def make_a_pie(acceptETC=False):
       menu_select(6, 9, errormsg='we ran out of pie') # a helper function defined in helpers.py
-      Items["BakePieButton"].click()
-      Items["TextMSGField"].click().write("We made your pie.").typewrite("tab","shift","enter")
+      MyGhost["BakePieButton"].click()
+      MyGhost["TextMSGField"].click().write("We made your pie.").typewrite("tab","shift","enter")
       return ["Pie was created successfully"]
     ```
-5. In `__main__.py` write your custom logic for invoking `spookyaction.run()`.
+5. In `__main__.py` write your custom logic for invoking `MyGhost.run()`.
 
+## Basic Ghost API
+```
+from spookyaction import Ghost
+class MyGhostClass(Ghost):
+   def start(self, obj, cmd):
+      ...
+      
+   def failed(self, e, obj, cmd):
+      ...
+   
+   def completed(obj, cmd):
+      ...
+
+MyGhost = MyGhostClass(ocr_key="........") # needs an OCR engine key from Google Cloud if you want to use .read()
+MyGhost["piebutton"] # => Item("piebutton")
+MGhost.click_all("piebutton", ...) # => clicks all
+MyGhost.wait_on("pieloading", ...) # => waits for all 
+MyGhost.typewrite("enter") # the Ghost class is a subclass of the UIInterface class, and can be used to access pyautogui.
+```
 
 ### Basic Item API 
 Bear in mind I can make no guarantees as to if any of those works correctly while spookyaction is below v0.1.0
@@ -42,10 +60,6 @@ clickbox.click(offx=0, offy=0)
 # execute a given function when the Item is found on screen. 
 # Lags out after roughly a minute, give or take a bit.
 clickbox.run_when_present(given_function, arg1, arg2, kwarg1=None, kwarg2="Hi")
-
-# a static method to execute click on all given Item names sequentially. 
-# Works from the spookyaction-specific Items dictionary. 
-Item.click_all("clickbox", "userprofile", "deletebutton")
 
 # a property that returns whether an Item is on screen or not. 
 clickbox.found # => True or False, dynamically computed. 
