@@ -5,4 +5,4 @@ class GUI_INTERFACE():
         pass
 
     def keywrite(self, *args):
-        pyautogui.keywrite(list(args))
+        pyautogui.typewrite(list(args))
