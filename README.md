@@ -101,9 +101,9 @@ clickbox.read(offset=(50,100), width=100, height=50) # => returns a string of th
 | Feature Name         | Feature Description                                                | Status        | Version Number |
 | -------------------  | ------------------------------------------------------------------ | ------------: | -------------: |
 | Push out v0.1.0      | Make sure all Item methods work as well as the MVP framework.      | COMPLETED     | V0.1.0         |
-| Get OCR Working      | Implement capturing of your Google Cloud Key -> .read() will work. | IN PROGRESS   | V0.1.1         |
-| Run from CSV         | Add a method for running the automator based off a CSV + Model.    | IN THE FUTURE | V0.2.0         |
-| Static Items         | Support for marking items as static, and caching their positions.  | IN THE FUTURE | V0.3.0         |
-| Full PyAutoGUI Args  | Ability to use all PyAutoGUI keyword arguments conveniently.       | IN THE FUTURE | V0.4.0         |
-| Specific Error.      | Extensive support for a variety of errors + better error handling  | IN THE FUTURE | V0.5.0         |
-| Raw PyAutoGUI Wrapper| Turn ui class into a complete convienence wrapper for pyautogui    | IN THE FUTURE | V0.6.0         |
+| Get OCR Working      | Implement capturing of your Google Cloud Key -> .read() will work. | COMPLETED     | V0.2.0         | 
+| Run from CSV         | Add a method for running the automator based off a CSV + Model.    | IN THE FUTURE | V0.3.0         |
+| Static Items         | Support for marking items as static, and caching their positions.  | IN THE FUTURE | V0.4.0         |
+| Full PyAutoGUI Args  | Ability to use all PyAutoGUI keyword arguments conveniently.       | IN THE FUTURE | V0.5.0         |
+| Specific Error.      | Extensive support for a variety of errors + better error handling  | IN THE FUTURE | V0.6.0         |
+| Raw PyAutoGUI Wrapper| Turn ui class into a complete convienence wrapper for pyautogui    | IN THE FUTURE | V0.7.0         |
