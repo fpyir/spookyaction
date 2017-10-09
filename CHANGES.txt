@@ -10,3 +10,4 @@ v<0.2.2>, <5/10/17> -- Bug Fixes
 v<0.2.3>, <5/10/17> -- Class inheritance of GUI_INTERFACE
 v<0.2.4>, <5/10/17> -- Tiny typo fix
 v<0.2.5>, <5/10/17> -- Small bug fix
+v<0.3.0>, <5/10/17> -- Numerous bug fixes, new functionality.

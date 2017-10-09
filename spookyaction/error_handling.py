@@ -17,7 +17,7 @@ class ItemNeverAppeared(Exception):
         self.itemobj = itemobj
 
 class Error(Exception):
-    def __init__(self, errormessage, finishing=[]):
-        Exception.__init__(self, errormessage)
-        self.log = errormessage
+    def __init__(self, errorlogs, finishing=[]):
+        Exception.__init__(self, errorlogs)
+        self.logs = errorlogs
         self.finishing = finishing

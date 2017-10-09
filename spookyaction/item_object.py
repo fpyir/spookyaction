@@ -60,7 +60,7 @@ class Item(object):
 
 
     @log
-    def drag_by(x=0,y=0):
+    def drag_by(self, x=0, y=0):
         # to implement #
         pass
 
@@ -103,8 +103,8 @@ class Item(object):
         raise Error(errormsg)
 
     @log
-    def fail(self, errormsg):
-        raise Error(errormsg)
+    def fail(self, errormsg, finishing=[]):
+        raise Error(errormsg, finishing=finishing)
 
     @log
     def keywrite(self, *args):
@@ -120,7 +120,7 @@ class Item(object):
     def wait(self, interval):
         time.sleep(interval)
         return self
-        
+
     @log
     def screenshot(self, offset=None, width=100, height=100):
         start = gi.locateOnScreen(self.url)
